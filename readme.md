@@ -6,18 +6,6 @@ Here is a README file for your URL Shortener project:
 
 This is a simple URL Shortener application built with Node.js, Express, and MongoDB. The application allows users to shorten URLs, redirect shortened URLs to their original destinations, and track analytics for each shortened URL.
 
-## Table of Contents
-
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Built With](#built-with)
-- [Author](#author)
-- [License](#license)
 
 ## Getting Started
 
@@ -111,14 +99,3 @@ url-shortener/
 - [MongoDB](https://www.mongodb.com/) - NoSQL database
 - [EJS](https://ejs.co/) - Embedded JavaScript templates
 
-## Author
-
-Meet Mehta - [GitHub Profile](https://github.com/yourusername)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize the README file to better match your project's specifics, such as your GitHub repository link, any additional setup steps, or dependencies.
