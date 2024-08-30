@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+    }
+    .meet{
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    div {
+      margin: 0 auto;
+      width: 80%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px ;
+      margin-bottom:10px ;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* CSS to Center the Table */
+    .table-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 80%; /* Adjust width as needed */
+      border-collapse: collapse;
+      margin: 0 auto; /* Center table horizontally */
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+    </style>
+</head>
+
+<body>
+  <h1>URL Shortener</h1>
+
+  <% if (locals.id) { %>
+  <p>
+    URL Generated:
+    <a href="http://localhost:3000/url/<%= id %>" target="_blank">
+      http://localhost:3000/url/<%= id %>
+    </a>
+  </p>
+  <% } %>
+
+  <div class="meet">
+    <form method="POST" action="/url">
+      <label>Enter Your Original URL</label>
+      <input type="text" name="url" placeholder="https://example.com" />
+      <button type="submit">Generate</button>
+    </form>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>S. No</th>
+          <th>ShortID</th>
+          <th>Redirect</th>
+          <th>Clicks</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach((url, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= url.shortId %></td>
+          <td><%= url.redirectUrl %></td>
+          <td><%= url.visitHistory.length %></td>
+          <td>
+            <a href="http://localhost:3000/url/<%= url.shortId %>" target="_blank">
+              http://localhost:3000/url/<%= url.shortId %>
+            </a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
