@@ -6,6 +6,8 @@ import * as path from "path";
 import urlRoute from "./routes/routes.js";
 import staticrouter from "./routes/staticrouter.js";
 import { run } from "./connect.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 const port = 3000;
