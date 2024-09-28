@@ -100,13 +100,25 @@
   </p>
   <% } %>
 
-  <div class="meet">
-    <form method="POST" action="/url">
-      <label>Enter Your Original URL</label>
-      <input type="text" name="url" placeholder="https://example.com" />
-      <button type="submit">Generate</button>
-    </form>
-  </div>
+ <div class="meet">
+  <form id="urlForm" method="POST" action="/url">
+    <label>Enter Your Original URL</label>
+    <input type="text" name="url" placeholder="https://example.com" />
+    <button type="submit">Generate</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('urlForm').addEventListener('submit', function (event) {
+    // You can optionally prevent the default form submission if needed
+    // event.preventDefault(); 
+    
+    // Clear the input field after submission
+    setTimeout(() => {
+      this.reset(); // Clear the input field
+    }, 100); 
+  });
+</script>
 
   <div>
     <table>

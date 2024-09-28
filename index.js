@@ -5,21 +5,19 @@ import * as path from "path";
 
 import urlRoute from "./routes/routes.js";
 import staticrouter from "./routes/staticrouter.js";
-import { connecttomongodb } from "./connect.js";
+import { run } from "./connect.js";
 
 const app = express();
 const port = 3000;
 
 //connect to db
-connecttomongodb("mongodb://localhost:27017/shorturl").then(() =>
-  console.log("mongodb connected")
-);
+run().then(() => console.log("mongodb connected"));
 // app.get("/", (req, res) => res.send("Hello World!"));
 app.set("view engine", "ejs");
-app.set("views", path.resolve("./views")); 
-app.use(express.json());  //middleware to acept json data
-   
-app.use(express.urlencoded({extended:false})); //middleware to accept form data
+app.set("views", path.resolve("./views"));
+app.use(express.json()); //middleware to acept json data
+
+app.use(express.urlencoded({ extended: false })); //middleware to accept form data
 //routing setup
 //Applies route handlers for the /url path using urlRoute from routes.js.
 app.use("/url", urlRoute);

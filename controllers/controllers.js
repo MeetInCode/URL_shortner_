@@ -25,10 +25,7 @@ async function handlegenerateNewShortUrl(req, res) {
     });
     const allurls = await URL.find({});
     // Respond with the new short ID
-    return res.render("homepage",{
-      id: newUrl.shortId,
-      urls:allurls,
-    });
+    return res.redirect("/");
     // return res.json({ id: newUrl.shortId });
   } catch (error) {
     // Handle unexpected errors
